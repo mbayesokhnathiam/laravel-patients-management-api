@@ -43,7 +43,7 @@ class PassportController extends Controller
         return response()->json([
             'user' => $user,
              'token' => $token->accessToken,
-             'Expire at'=> Carbon::parse( $token->token->expires_at)->toDateTimeString()
+             'Expire at'=> Carbon::parse($token->token->expires_at)->toDateTimeString()
             ], 200);
     }
 
@@ -105,6 +105,7 @@ class PassportController extends Controller
     public function logout(Request $request)
     {
         // $request->user()->token()->revoke();
+       
         $request->user()->token()->delete();
         return response()->json([
             'message' => 'Successfully logged out'
