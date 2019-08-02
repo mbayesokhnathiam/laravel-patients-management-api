@@ -14,15 +14,17 @@ class CreateRendezVousTable extends Migration
     public function up()
     {
         Schema::create('rendezvous', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->integer('id',true);
+            $table->bigIncrements('id');
             $table->string('numrendezvous',20);
             $table->date('daterendezvous');
             $table->text('note');
-            $table->integer('patient_id')->index('patient_id');
-            $table->integer('secretaire_id')->index('secretaire_id');
-            $table->foreign('patient_id')->references('id')->on('patient');
-            $table->foreign('secretaire_id')->references('id')->on('users');
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('secretaire_id');
+           
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('secretaire_id')->references('id')->on('secretaires');
+
+
             $table->softDeletes();
             $table->timestamps();
         });

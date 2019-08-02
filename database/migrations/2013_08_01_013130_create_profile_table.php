@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToUsersProfile extends Migration
+class CreateProfileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddForeignToUsersProfile extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('profile_id')->references('id')->on('profile');
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('libelle',50);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddForeignToUsersProfile extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_patient_id_foreign');
-        });
+        Schema::dropIfExists('profile');
     }
 }

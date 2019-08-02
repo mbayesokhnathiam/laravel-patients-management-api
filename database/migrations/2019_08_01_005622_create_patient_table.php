@@ -13,9 +13,8 @@ class CreatePatientTable extends Migration
      */
     public function up()
     {
-        Schema::create('patient', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->integer('id',true);
+        Schema::create('patients', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('nom',80)->nullable(false);
             $table->string('prenom',80)->nullable(false);
             $table->integer('age')->nullable();
