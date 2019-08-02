@@ -21,6 +21,15 @@ Route::post('register', 'PassportController@register');
  
 Route::middleware('auth:api')->group(function () {
     Route::get('user', 'PassportController@details');
- 
-    Route::resource('products', 'ProductController');
+    Route::get('user/logout','PassportController@logout');
+});
+
+
+
+// mettre en dernier
+// if page not found
+Route::fallback(function(){
+    return response()->json([
+        'success' => false,
+        'message' => 'Page Not Found. If error persists, contact admin@website.com'], 404);
 });

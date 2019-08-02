@@ -37,15 +37,13 @@ class PassportController extends Controller
         $token = $user->createToken('Registration');
         $token->token->expires_at = Carbon::now()->addDays(1);
         $token->token->save();
-        dd($user);
+       
         // return response()->json(['token' => $token], 200);
 
         return response()->json([
             'user' => $user,
              'token' => $token->accessToken,
-             'Expire at'=> Carbon::parse(
-                            $token->token->expires_at
-                     )->toDateTimeString()
+             'Expire at'=> Carbon::parse( $token->token->expires_at)->toDateTimeString()
             ], 200);
     }
 
