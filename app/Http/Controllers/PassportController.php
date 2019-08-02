@@ -23,6 +23,7 @@ class PassportController extends Controller
             'profile'=>'required|numeric'
         ]);
         
+        
  
         $user = User::create([
             'name' => $request->name,
