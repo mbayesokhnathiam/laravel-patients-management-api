@@ -22,7 +22,7 @@ class CreateRendezVousTable extends Migration
             $table->unsignedBigInteger('secretaire_id');
            
             $table->foreign('patient_id')->references('id')->on('patients');
-            $table->foreign('secretaire_id')->references('id')->on('secretaires');
+            $table->foreign('secretaire_id')->references('id')->on('users');
 
 
             $table->softDeletes();
