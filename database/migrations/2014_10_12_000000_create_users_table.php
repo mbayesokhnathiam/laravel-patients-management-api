@@ -17,9 +17,10 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->default("avatar.jpg")
             $table->string('password');
             $table->unsignedBigInteger('profile_id');
+            $table->string('img',100)->nullable();
             
             $table->foreign('profile_id')->references('id')->on('profiles');
        
