@@ -13,7 +13,7 @@ class CreateConsultationTable extends Migration
      */
     public function up()
     {
-        Schema::create('consultation', function (Blueprint $table) {
+        Schema::create('consultations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('dateconsultation');
             $table->string('numconsultation');

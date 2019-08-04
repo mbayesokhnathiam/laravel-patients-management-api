@@ -29,7 +29,7 @@ class ConstantesController extends BaseController
             try
             {
                 $user= request()->user();
-                                                $data = $request->all ();
+                $data = $request->all ();
                 return $this->sendSuccess($this->service->create($data));
             }
             catch (\Exception $e) {

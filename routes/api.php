@@ -24,6 +24,16 @@ Route::middleware('auth:api')->group(function () {
     Route::get('user', 'PassportController@details');
     Route::get('user/logout','PassportController@logout');
     
+    Route::resource('Profile', 'ProfileController');
+
+    Route::resource('Constante', 'ConstantesController');
+
+    Route::resource('Consultation', 'ConsultationController');
+
+    Route::resource('Patient', 'PatientController');
+
+    Route::resource('Rendezvous', 'RendezvousController');
+
 });
 
 
@@ -57,8 +67,3 @@ Route::fallback(function(){
         'message' => 'Page Not Found. If error persists, contact admin@website.com'], 404);
 });
 
-Route::resource('consultations', 'ConsultationController');
-Route::resource('constantes', 'ConstantesController');
-Route::resource('patients', 'PatientController');
-Route::resource('profiles', 'ProfileController');
-Route::resource('rendezvouses', 'RendezvousController');
