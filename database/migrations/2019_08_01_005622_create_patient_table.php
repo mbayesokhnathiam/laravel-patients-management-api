@@ -21,7 +21,7 @@ class CreatePatientTable extends Migration
             $table->date('datenais')->nullable();
             $table->boolean('sexe');
             $table->string('cellulaire',20)->nullable();
-            $table->string('prefession',20);
+            $table->string('profession',20);
             $table->softDeletes();
             $table->timestamps();
         });
