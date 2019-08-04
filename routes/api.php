@@ -56,3 +56,9 @@ Route::fallback(function(){
         'success' => false,
         'message' => 'Page Not Found. If error persists, contact admin@website.com'], 404);
 });
+
+Route::resource('consultations', 'ConsultationController');
+Route::resource('constantes', 'ConstantesController');
+Route::resource('patients', 'PatientController');
+Route::resource('profiles', 'ProfileController');
+Route::resource('rendezvouses', 'RendezvousController');
