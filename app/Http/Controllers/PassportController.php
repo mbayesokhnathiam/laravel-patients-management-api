@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\User;
+use App\profile;
 class PassportController extends Controller
 {
     //
@@ -42,8 +43,10 @@ class PassportController extends Controller
         // return response()->json(['token' => $token], 200);
 
         return response()->json([
-            'user' => $user,
-             'token' => $token->accessToken,
+             'user' => $user,
+             'profile' => $user->profile,
+             'token_type' => 'Bearer',
+             'access_token' => $token->accessToken,
              'Expire at'=> Carbon::parse($token->token->expires_at)->toDateTimeString()
             ], 200);
     }
@@ -85,21 +88,19 @@ class PassportController extends Controller
             ], 401);
         $user = auth()->user();
 
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
-        // if ($request->remember_me)
-        $token->expires_at = Carbon::now()->addDays(2);
-        $token->save();
+        $token = $user->createToken('Personnel Access Tokens');
+        $token->token->expires_at = Carbon::now()->addDays(2);
+        $token->token->save();
+       
+        // return response()->json(['token' => $token], 200);
+
         return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'user' =>$user->name,
-            'iduser'=>$user->id,
-            'img' =>$user->img,
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]);
+             'user' => $user,
+             'profile' => $user->profile,
+             'token_type' => 'Bearer',
+             'access_token' => $token->accessToken,
+             'Expire at'=> Carbon::parse($token->token->expires_at)->toDateTimeString()
+            ], 200);
     }
  
 
@@ -122,5 +123,11 @@ class PassportController extends Controller
     public function details()
     {
         return response()->json(['user' => auth()->user()], 200);
+    }
+
+    public function ListeProfile()
+    {
+        $profle = profile::all();
+         return response()->json($profle, 200);
     }
 }
