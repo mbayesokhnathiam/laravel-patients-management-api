@@ -42,6 +42,15 @@ class User extends Authenticatable
     protected $fillable = ['profile_id', 'name', 'email', 'email_verified_at', 'password', 'remember_token', 'created_at', 'updated_at'];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+     protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function profile()
