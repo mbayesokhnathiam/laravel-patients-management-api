@@ -35,6 +35,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::resource('Rendezvous', 'RendezvousController');
 
+    Route::get('Constante/consultation/{id}','ConstantesController@getConsultation');
+
 });
 
 

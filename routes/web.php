@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/api/listeprofile', 'PassportController@ListeProfile');
 
 // Route::resource('Rendezvous', 'RendezvousController');
+Route::resource('Consultation', 'ConsultationController');
+// Route::get('Constante/consultation/{id}','ConstantesController@getConsultation');

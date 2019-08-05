@@ -21,7 +21,14 @@ class ConsultationController extends BaseController
     }
     public function index()
         {
-            return $this->sendSuccess($this->service->all());
+            $consultation = $this->service->all();
+            foreach ($consultation as $key => $value) {
+                # code...
+                $consultation[$key]["patient"] = $value->patient;
+                $consultation[$key]["medecin"] = $value->medecin;
+                $consultation[$key]["constante"] = $value->constante;
+            }
+            return $this->sendSuccess($consultation);
         }
 
         public function store(ConsultationRequest $request)

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ConstantesRequest;
 use App\Services\ConstantesService;
 use Illuminate\Support\Facades\Log;
-
+use App\constantes;
 
 class ConstantesController extends BaseController
 {
@@ -69,6 +69,20 @@ class ConstantesController extends BaseController
             } catch (\Exception $e) {
                     Log::error($e->getMessage());
                     return $this->sendError("Une erreur est survenue lors de la modification, Veuiller contacter l'administrateur ");
+            }
+        }
+
+
+        public function getConsultation($id)
+        {
+            try {
+                $user= request()->user();
+                $constante = constantes::where('consultation_id',$id)->get();
+                return $this->sendSuccess($constante);
+            } catch (\Throwable $th) {
+                Log::error($e->getMessage());
+                return $this->sendError("Une erreur est survenue, Veuiller contacter l'administrateur"   );
+           
             }
         }
 
