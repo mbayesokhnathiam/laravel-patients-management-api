@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $datenais
  * @property boolean $sexe
  * @property string $cellulaire
- * @property string $prefession
+ * @property string $profession
  * @property string $deleted_at
  * @property string $created_at
  * @property string $updated_at
@@ -31,7 +31,7 @@ class patient extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nom', 'prenom', 'age', 'datenais', 'sexe', 'cellulaire', 'prefession', 'deleted_at', 'created_at', 'updated_at'];
+    protected $fillable = ['nom', 'prenom', 'age', 'datenais', 'sexe', 'cellulaire', 'profession', 'deleted_at', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

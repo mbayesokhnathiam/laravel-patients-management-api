@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/api/listeprofile', 'PassportController@ListeProfile');
+
+// Route::resource('Rendezvous', 'RendezvousController');

@@ -21,7 +21,14 @@ class RendezvousController extends BaseController
     }
     public function index()
         {
-            return $this->sendSuccess($this->service->all());
+            $RV = $this->service->all();
+           
+            foreach ($RV as $key => $value) {
+                # code...
+                $RV[$key]["patient"] = $value->patient;
+            }
+            // dd($RV);
+            return $this->sendSuccess($RV);
         }
 
         public function store(RendezvousRequest $request)
@@ -29,7 +36,7 @@ class RendezvousController extends BaseController
             try
             {
                 $user= request()->user();
-                                                $data = $request->all ();
+                $data = $request->all();
                 return $this->sendSuccess($this->service->create($data));
             }
             catch (\Exception $e) {
@@ -49,7 +56,7 @@ class RendezvousController extends BaseController
             try
             {
                 $user= request()->user();
-                $data = $request->all ();
+                $data = $request->all();
                 $res = $this->service->update( $data, $id);
                 if ($res) {
                     return $this->sendSuccess($res,'success');
