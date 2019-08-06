@@ -22,7 +22,7 @@ class CreateConstantesTable extends Migration
 
             $table->unsignedBigInteger('consultation_id');
 
-            $table->foreign('consultation_id')->references('id')->on('consultation');
+            $table->foreign('consultation_id')->references('id')->on('consultations');
 
             $table->softDeletes();
             $table->timestamps();

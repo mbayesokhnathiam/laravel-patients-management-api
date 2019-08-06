@@ -23,7 +23,7 @@ class Consultation extends Model
 
     public function constante()
     {
-        return $this->hasMany('App\constantes');
+        return $this->hasMany('App\Constantes');
     }
 }
 

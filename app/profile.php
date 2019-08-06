@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property User[] $users
  */
-class profile extends Model
+class Profile extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.

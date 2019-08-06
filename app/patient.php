@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Consultation[] $consultations
  * @property Rendezvous[] $rendezvouses
  */
-class patient extends Model
+class Patient extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.

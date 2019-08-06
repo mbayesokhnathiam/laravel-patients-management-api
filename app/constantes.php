@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Consultation $consultation
  */
-class constantes extends Model
+class Constantes extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
