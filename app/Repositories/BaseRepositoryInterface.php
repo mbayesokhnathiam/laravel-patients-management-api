@@ -23,5 +23,7 @@ interface BaseRepositoryInterface
 
     public function getPaginate($page);
 
+    public function orderBy($name,$order='asc');
+
 }
 

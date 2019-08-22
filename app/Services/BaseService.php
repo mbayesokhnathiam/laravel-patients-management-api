@@ -130,4 +130,8 @@ class BaseService
         return $models;
     }
 
+    public function orderBy($name,$order='asc'){
+        $models = $this->repository->orderBy($name, $order);
+        return $models;
+    }
 }

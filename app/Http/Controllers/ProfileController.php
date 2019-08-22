@@ -21,7 +21,7 @@ class ProfileController extends BaseController
     }
     public function index()
         {
-            return $this->sendSuccess($this->service->all());
+            return $this->sendSuccess($this->service->orderBy('created_at', 'desc');
         }
 
         public function store(ProfileRequest $request)

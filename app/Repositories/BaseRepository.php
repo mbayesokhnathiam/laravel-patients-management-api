@@ -105,4 +105,10 @@ class BaseRepository
     {
         return $this->model->findOrFail($id);
     }
+
+
+    public function orderBy($name,$order='asc')
+    {
+        return $this->model->orderBy($name, $order)->get();
+    }
 }

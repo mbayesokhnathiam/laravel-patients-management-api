@@ -21,7 +21,8 @@ class PatientController extends BaseController
     }
     public function index()
         {
-            return $this->sendSuccess($this->service->all());
+            return $this->sendSuccess($this->service->orderBy('created_at', 'desc'));
+            // return $this->sendSuccess($this->service->all());
         }
 
         public function store(PatientRequest $request)
@@ -29,7 +30,7 @@ class PatientController extends BaseController
             try
             {
                 $user= request()->user();
-                                                $data = $request->all ();
+                                                $data = $request->all();
                 return $this->sendSuccess($this->service->create($data));
             }
             catch (\Exception $e) {

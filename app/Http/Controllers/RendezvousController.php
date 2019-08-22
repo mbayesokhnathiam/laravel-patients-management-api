@@ -21,7 +21,7 @@ class RendezvousController extends BaseController
     }
     public function index()
         {
-            $RV = $this->service->all();
+            $RV = $this->service->orderBy('created_at', 'desc');
            
             foreach ($RV as $key => $value) {
                 # code...
